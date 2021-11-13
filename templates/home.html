@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot</title>
+    <script src="https://kit.fontawesome.com/2e56d7ac38.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="chatBot">
+        <div class="chatBot__Box">
+            <div class="chatBot__header">
+                <div class="chatBot__header--close">
+                    <button><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+            <div class="chatBot__msgBox">
+            </div>
+            <div class="chatBot__footer">
+                <input type="text" placeholder="Write a reply...">
+                <div class="chatBot__footer--send">
+                    <button><i class="far fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="chatBot__Button">
+            <button><i class="fas fa-comment"></i></button>
+        </div>
+    </div>
+    <script>
+        //  $SCRIPT_ROOT = {{ request.script_root|tojson }};
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
