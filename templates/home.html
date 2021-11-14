@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatBot</title>
     <script src="https://kit.fontawesome.com/2e56d7ac38.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
     <div class="chatBot">
         <div class="chatBot__Box">
             <div class="chatBot__header">
+                <div class="chatBot__header--title">
+                    <i class="fas fa-comment"></i><h3>SmartOne</h3>
+                </div>
                 <div class="chatBot__header--close">
                     <button><i class="fas fa-times"></i></button>
                 </div>
             </div>
             <div class="chatBot__msgBox">
+                <div class="msg__item msg__item--user"><h4>Hey, My name is Taranveer Singh</h4></div>
+                <div class="msg__item msg__item--bot"><i class="fas fa-comment"></i><h4>Hey Taranveer Singh</h4></div>
             </div>
             <div class="chatBot__footer">
                 <input type="text" placeholder="Write a reply...">
@@ -32,6 +41,8 @@
     <script>
         //  $SCRIPT_ROOT = {{ request.script_root|tojson }};
     </script>
-    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="static/script.js"></script>
 </body>
 </html>
