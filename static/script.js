@@ -45,9 +45,9 @@ class Chatbox {
         }
         $('.chatBot__msgBox').append('<div class="msg__item msg__item--user"><h4>' + userText + '</h4></div>');
 
-        // $.get("/get", {msg: text}).done(function(botMessage) {
-        //     $('.chatBot__msgBox').append('<div class="msg__item msg__item--bot"><i class="fas fa-comment"></i><h4>' + botMessage + '</h4></div>');
-        // });
+        $.get("/get", { msg: userText }).done(function(botMessage) {
+            $('.chatBot__msgBox').append('<div class="msg__item msg__item--bot"><i class="fas fa-comment"></i><h4>' + botMessage + '</h4></div>');
+        });
         textField.value = "";
         $(".chatBot__msgBox").stop().animate({ scrollTop: $(".chatBot__msgBox")[0].scrollHeight}, 1000);
     }
