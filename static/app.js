@@ -21,66 +21,38 @@ class Chatbox {
             if(key === "Enter") {
                 this.onSendButton(chatBox)
             }
-        })
+        });
     }
 
     changeState(chatbox) {
         this.state = !this.state;
 
         if(this.state) {
-            chatbox.style.display = "none";
-        } else {
             chatbox.style.display = "flex";
+            document.body.style.backgroundColor = "rgba(99, 99, 99, 0.3)";
+        } else {
+            chatbox.style.display = "none";
+            document.body.style.backgroundColor = "white";
         }
     } 
 
+
     onSendButton(chatbox) {
         let textField = chatbox.querySelector('input');
-        let text = textField.value;
-        if(text === "") {
+        let userText = textField.value;
+        if(userText === "") {
             return;
         }
+        $('.chatBot__msgBox').append('<div class="msg__item msg__item--user"><h4>' + userText + '</h4></div>');
 
-        let msg = {name:'User', message: text}
-        this.messages.push(msg);
-
-        // 'http://127.0.0.1:5000/predict'
-        fetch('http://127.0.0.1:5000/predict', {
-            method: 'POST',
-            body: JSON.stringify({message: text}),
-            mode: 'cors',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-        })
-        .then(r => r.json())
-        .then(r => {
-            let msg2 ={ name: 'rrcBot', message: r.answer};
-            this.message.push(msg2);
-            this.updateChatText(chatbox);
-            textField.value = '';
-
-        }).catch((error) => {
-            // console.error('Error:', error);
-            this.updateChatText(chatbox);
-            textField.value = '';
-        });
-    }
-
-    updateChatText(chatbox) {
-        var html = '';
-        this.messages.slice().reverse().forEach(function(item,){
-            if(item.name === 'rrcBot') {
-                html += '<div class="msg__item msg__item--bot"><i class="fas fa-comment"></i><h4>' + item.message + '</h4></div>'
-            }
-            else {
-                html += '<div class="msg__item msg__item--user"><h4>' + item.message + '</h4></div>'
-            }
-        });
-        const chatmessage = chatbox.querySelector('.chatBot__msgBox');
-        chatmessage.innerHTML = html;
+        // $.get("/get", {msg: text}).done(function(botMessage) {
+        //     $('.chatBot__msgBox').append('<div class="msg__item msg__item--bot"><i class="fas fa-comment"></i><h4>' + botMessage + '</h4></div>');
+        // });
+        textField.value = "";
+        $(".chatBot__msgBox").stop().animate({ scrollTop: $(".chatBot__msgBox")[0].scrollHeight}, 1000);
     }
 }
-
 const chatbox = new Chatbox();
 chatbox.display();
+
+
