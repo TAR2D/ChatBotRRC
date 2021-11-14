@@ -60,6 +60,10 @@ a:visited {
     color: inherit;
 }
 
+:root {
+    --ff-primary:'Roboto', sans-serif;
+}
+
 .chatBot {
     position: absolute;
     bottom: 30px;
@@ -70,8 +74,8 @@ a:visited {
 .chatBot__Box {
     display: none;
     flex-direction: column;
-    width: 200px;
-    height: 300px;
+    width: 300px;
+    height: 500px;
 
     margin-bottom: 10px;
 
@@ -83,13 +87,34 @@ a:visited {
 .chatBot__header {
     background-color: #c81f45;
     width: 100%;
-    height: 15%;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
+    height: 10%;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom: 2px solid whitesmoke;
 
     display: flex;
-    justify-content:flex-end;
+    justify-content:space-between;
     align-items: center;
+}
+
+.chatBot__header--title{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.chatBot__header--title i {
+    color:#c81f44;
+    background-color: white;
+    padding: 5px;
+    border-radius: 45%;
+}
+
+.chatBot__header--title h3 {
+    padding-top: 2px;
+    color: white;
+    margin-left: 3px;
+    font-family: var(--ff-primary);
 }
 
 .chatBot__header--close button{
@@ -97,15 +122,19 @@ a:visited {
     margin-right: 10px;
     background-color: transparent;
     color: white;
-    font-size: 1em;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
 .chatBot__msgBox{
-    background-color: rgba(99, 99, 99, 0.2);
+    padding: 4px 0;
+    background-color: whitesmoke;
     width: 100%;
-    height: 70%;
+    height: 80%;
+    border-left: 0.5px solid whitesmoke;
+    border-right: 0.5px solid whitesmoke;
     overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 .msg__item {
@@ -115,43 +144,62 @@ a:visited {
 }
 
 .msg__item i {
-    color: #c81f45;
-    font-size: 0.75em;
-    background-color: white;
-    border: 3px solid white;
+    color: white;
+    font-size: 1em;
+    background-color: #c81f45;
     border-radius: 45%;
     margin-left: 3px;
+    padding: 5px;
 }
  
 .msg__item h4 {
-    background-color: white;
-    border-radius: 6px;
-    margin: 3px 4px;
-    padding: 4px 6px;
+    margin: 4px 4px;
+    padding: 10px 14px;
+    font-size: 0.85em;
+    font-family: var(--ff-primary);
 }
 
 .msg__item--user  {
     justify-content: flex-end;
 }
 
+.msg__item--user h4 {
+    color: white;
+    margin-left: 50px;
+    background-color: #c81f44;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.msg__item--bot h4 {
+    background-color: rgba(99, 99, 99, 0.2);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
 
 .chatBot__footer {
     width: 100%;
-    height: 15%;
+    height: 10%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
+    background-color: white;
 
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .chatBot__footer input {
-    width:70%;
-    margin-left: 5px;
+    width:75%;
+    margin-left: 5%;
     border: none;
+}
+.chatBot__footer input::placeholder {
+    color: rgb(194, 194, 194);
 }
 
 .chatBot__footer input:focus {
@@ -165,15 +213,15 @@ a:visited {
 .chatBot__footer--send button{
     border: none;
     background-color: transparent;
-    font-size: 1em;
+    font-size: 1.5em;
     cursor: pointer;
     color: #c81f45;
 }
 
 
 .chatBot__Button {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     float: right;
 
     border-radius: 2em;
@@ -186,7 +234,7 @@ a:visited {
     width: 100%;
     height: 100%;
     color: white;
-    font-size: 1.5em;
+    font-size: 2em;
 
     border-radius: 45%;
     background-color: #c81f45;
